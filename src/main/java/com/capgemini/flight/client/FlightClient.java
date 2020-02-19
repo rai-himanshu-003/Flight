@@ -14,7 +14,7 @@ public class FlightClient {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("choose one option");
 		String opt = null;
-		String id=null;
+		
 		FlightSystemService ser = new FlightSystemServiceImpl();
 		do {
 			System.out.println("1-delete a scheduled Flight\n2-change source and destination airport"
@@ -33,11 +33,10 @@ public class FlightClient {
 				break;}
 			
 			case "2": {
-		       try {
+		      try {
 				System.out.println("enter the scheduled flights id");
-				 id = scan.next();
-		       
-		        
+				 String id = scan.next();
+		      
 				System.out.println("enter the source airport name");
 				String str1 = scan.next();
 

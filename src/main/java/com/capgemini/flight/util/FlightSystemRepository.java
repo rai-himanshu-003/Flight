@@ -11,7 +11,12 @@ import com.capgemini.flight.entity.Airport;
 import com.capgemini.flight.entity.Flight;
 import com.capgemini.flight.entity.Schedule;
 import com.capgemini.flight.entity.ScheduledFlight;
-
+/***************************************************************************************
+ * @Author Name:Himanshu
+ * this class contain a map having all scheduled flight details and a list having all airport details
+ * this class contain two methods that returns scheduledFlight details in map and airport details in list
+ * @methods: getScheduledFlight and getAirportDetails
+ */
 public class FlightSystemRepository {
 	
    
@@ -56,8 +61,8 @@ public class FlightSystemRepository {
 				LocalDateTime.of(2020, 10, 14, 9, 00));
 
 		ScheduledFlight sf1 = new ScheduledFlight(1211,flight1, 23, schedule1);
-		ScheduledFlight sf2 = new ScheduledFlight(1213,flight2, 30, schedule2);
-		ScheduledFlight sf3 = new ScheduledFlight(1214,flight2, 33, schedule3);
+		ScheduledFlight sf2 = new ScheduledFlight(1212,flight2, 30, schedule2);
+		ScheduledFlight sf3 = new ScheduledFlight(1213,flight2, 33, schedule3);
 		ScheduledFlight sf4 = new ScheduledFlight(1215,flight1, 12, schedule4);
 		ScheduledFlight sf5 = new ScheduledFlight(1216,flight4, 10, schedule5);
 		ScheduledFlight sf6 = new ScheduledFlight(1217,flight4, 56, schedule6);
@@ -65,8 +70,8 @@ public class FlightSystemRepository {
 		
   /****************Adding Scheduled Flight*********/
 		schfmap.put(1211,sf1);
-		schfmap.put(1213,sf2);
-		schfmap.put(1214,sf3);
+		schfmap.put(1212,sf2);
+		schfmap.put(1213,sf3);
 		schfmap.put(1215,sf4);
 		schfmap.put(1216,sf5);
 		schfmap.put(1217,sf6);
@@ -74,22 +79,22 @@ public class FlightSystemRepository {
 		
 
 	}
-/*
+/**************************************************************************************
  * this method return map containing all scheduled flight 
- * MethodName: getScheduledFlight
- * ReturnType:Map<Integer,ScheduledFlight>
+ *@methodName: getScheduledFlight
+ *@returnType:Map<Integer,ScheduledFlight>
  * 
- */
+ *****************************************************************************************/
 	public static Map<Integer,ScheduledFlight> getScheduledFlight() {
 
 	       return schfmap;
 
 	}
-/*
+/*****************************************************************************************
  * this method return the list containing Airport details
- * MethodName:getAirportDetails
- * ReturnType:List<Airport>
- */
+ * @MethodName:getAirportDetails
+ * @returnType:List<Airport>
+ ****************************************************************************************/
 	public static List<Airport> getAirportDetails(){
 		return airportlst;
 	}

@@ -6,6 +6,9 @@ public class ScheduledFlight {
 	private Integer availableSeats;
 	private Schedule schedule=new Schedule();
 
+	public ScheduledFlight() {
+		
+	}
 	public ScheduledFlight(int scheduledId,Flight flight, Integer availableSeats, Schedule schedule) {
 		super();
 		this.scheduledId=scheduledId;
