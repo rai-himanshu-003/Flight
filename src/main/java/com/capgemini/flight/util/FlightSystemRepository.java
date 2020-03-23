@@ -20,7 +20,7 @@ import com.capgemini.flight.entity.ScheduledFlight;
 public class FlightSystemRepository {
 	
    
-	public static Map<Integer,ScheduledFlight> schfmap = new HashMap< >();
+	public static Map<Integer,ScheduledFlight> schedulemap = new HashMap< >();
 	public static List<Airport> airportlst =new ArrayList<Airport>();
 	
 
@@ -69,13 +69,13 @@ public class FlightSystemRepository {
 		ScheduledFlight sf7 = new ScheduledFlight(1218,flight3, 100, schedule7);
 		
   /****************Adding Scheduled Flight*********/
-		schfmap.put(1211,sf1);
-		schfmap.put(1212,sf2);
-		schfmap.put(1213,sf3);
-		schfmap.put(1215,sf4);
-		schfmap.put(1216,sf5);
-		schfmap.put(1217,sf6);
-		schfmap.put(1218,sf7);
+		schedulemap.put(1211,sf1);
+		schedulemap.put(1212,sf2);
+		schedulemap.put(1213,sf3);
+		schedulemap.put(1215,sf4);
+		schedulemap.put(1216,sf5);
+		schedulemap.put(1217,sf6);
+		schedulemap.put(1218,sf7);
 		
 
 	}
@@ -87,7 +87,7 @@ public class FlightSystemRepository {
  *****************************************************************************************/
 	public static Map<Integer,ScheduledFlight> getScheduledFlight() {
 
-	       return schfmap;
+	       return schedulemap;
 
 	}
 /*****************************************************************************************

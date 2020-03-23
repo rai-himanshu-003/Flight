@@ -1,5 +1,6 @@
 package com.capgemini.flight.dao;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ public class FlightSystemDaoImpl implements FlightSystemDao {
 	List<Airport> airportLst = FlightSystemRepository.getAirportDetails();
 
 
-	Map<Integer, ScheduledFlight> map = FlightSystemRepository.getScheduledFlight();
+	Map<Integer, ScheduledFlight> scheduleflightmap = FlightSystemRepository.getScheduledFlight();
 	
 	/***********************************************************************************
 	 * this method shows the Scheduled flight details of a id which is entered by admin
@@ -30,10 +31,10 @@ public class FlightSystemDaoImpl implements FlightSystemDao {
 	 ***********************************************************************************/
 	public ScheduledFlight viewScheduledFlight(int id) throws ScheduleFlightException {
 
-		if (!map.containsKey(id)) {
+		if (!scheduleflightmap.containsKey(id)) {
 			throw new ScheduleFlightException("Invalid Id");
 		}
-		return map.get(id);
+		return scheduleflightmap.get(id);
 
 	}
 
@@ -47,10 +48,10 @@ public class FlightSystemDaoImpl implements FlightSystemDao {
 	 ******************************************************************************/
 	public boolean deleteScheduledFlight(int id) throws ScheduleFlightException {
 		
-			if (!map.containsKey(id)) {
+			if (!scheduleflightmap.containsKey(id)) {
 				throw new ScheduleFlightException("Invalid Id");
 			}else {
-				map.remove(id);}
+				scheduleflightmap.remove(id);}
 			
                 return true;
 		
@@ -87,8 +88,12 @@ public class FlightSystemDaoImpl implements FlightSystemDao {
 	 **********************************************************************************/
 	@Override
 	public boolean updateSchedule(ScheduledFlight schedule) {
-		map.replace(schedule.getScheduledId(), schedule);
+		scheduleflightmap.replace(schedule.getScheduledId(), schedule);
 		return false;
 	}
+	
+	
+		
+	
 
 }

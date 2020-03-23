@@ -16,7 +16,7 @@ import com.capgemini.flight.exception.ValidateException;
  */
 public class FlightSystemServiceImpl implements FlightSystemService {
 
-	Airport airport;
+
 	private FlightSystemDao dao = new FlightSystemDaoImpl();
 
 	/*****************************************************************************************************
@@ -47,12 +47,12 @@ public class FlightSystemServiceImpl implements FlightSystemService {
     * @parameter:String id,String src,String dest
     *****************************************************************************************************/
 	@Override 
-	public boolean changeSourceAndDestination(String id, String src, String dest)
+	public boolean changeSourceAndDestination(String scheduleId, String src, String dest)
 			throws ValidateException, ScheduleFlightException, AirportNotFoundException {
-		if (!id.matches("[1-9][0-9]{3}")) {
-			throw new ValidateException("id must be number and it is between 3 to 6 number");}
+		if (!scheduleId.matches("[1-9][0-9]{3}")) {
+			throw new ValidateException("id must be number and it is 4 digit number number");}
 		
-		ScheduledFlight schFlight = dao.viewScheduledFlight(Integer.parseInt(id));
+		ScheduledFlight schFlight = dao.viewScheduledFlight(Integer.parseInt(scheduleId));
 		Airport sourceAirport = dao.getAirport(src);
 		Airport destinationAirport = dao.getAirport(dest);
 		schFlight.getSchedule().setSourceAirport(sourceAirport);
@@ -70,11 +70,11 @@ public class FlightSystemServiceImpl implements FlightSystemService {
 	 * @parameter:String id
 	 ***********************************************************************************************/
     @Override
-	public ScheduledFlight viewScheduledFlight(String id) throws ValidateException,ScheduleFlightException {
-    	if (!id.matches("[1-9][0-9]{3}")) {
+	public ScheduledFlight viewScheduledFlight(String scheduleId) throws ValidateException,ScheduleFlightException {
+    	if (!scheduleId.matches("[1-9][0-9]{3}")) {
 			throw new ValidateException("id must be number and it is between 3 to 6 number");}
 
-		return dao.viewScheduledFlight(Integer.parseInt(id));
+		return dao.viewScheduledFlight(Integer.parseInt(scheduleId));
 	
 }
 }

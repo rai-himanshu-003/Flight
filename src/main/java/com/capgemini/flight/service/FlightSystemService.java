@@ -9,9 +9,9 @@ public interface FlightSystemService {
 
 	public boolean deleteScheduledFlights(String scheduledId) throws ValidateException, ScheduleFlightException;
 
-	public boolean changeSourceAndDestination(String id, String src, String dest)
+	public boolean changeSourceAndDestination(String scheduleId, String src, String dest)
 			throws ValidateException, ScheduleFlightException, AirportNotFoundException;
 	
-	 public ScheduledFlight viewScheduledFlight(String id) throws ValidateException,ScheduleFlightException;
+	 public ScheduledFlight viewScheduledFlight(String scheduleId) throws ValidateException,ScheduleFlightException;
 
 }

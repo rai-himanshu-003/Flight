@@ -45,7 +45,8 @@ public class Flight1Test {
 	public void testScheduleId() throws ValidateException {
 		assertAll("scheduleId",
        ()->assertThrows(ValidateException.class,()->{ser.deleteScheduledFlights("12001");}),
-	   ()->assertThrows(ValidateException.class,()->{ser.deleteScheduledFlights("sgdwjfhsjwhdj");}));         
+	   ()->assertThrows(ValidateException.class,()->{ser.deleteScheduledFlights("sgdwjfhsjwhdj");}),  
+		()->assertThrows(ValidateException.class,()->{ser.deleteScheduledFlights("");}));
 	}
 	
 	@Test

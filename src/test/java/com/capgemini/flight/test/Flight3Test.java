@@ -1,6 +1,7 @@
 package com.capgemini.flight.test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -36,8 +37,8 @@ public class Flight3Test {
 	public void testAirportNotFoundException()throws ValidateException,ScheduleFlightException,AirportNotFoundException{
 		assertAll("airport name",
 	()->assertThrows(AirportNotFoundException.class,()->{ser.changeSourceAndDestination("1216", "AGR", "PNQ");}),
-    ()->assertThrows(AirportNotFoundException.class,()->{ser.changeSourceAndDestination("1215", "AGR", "fgfhdh");}));
-		
+    ()->assertThrows(AirportNotFoundException.class,()->{ser.changeSourceAndDestination("1215", "AGR", "fgfhdh");}),
+		()->assertThrows(AirportNotFoundException.class,()->{ser.changeSourceAndDestination("1215", "", "");}));	
 	}
 	
 	@Test

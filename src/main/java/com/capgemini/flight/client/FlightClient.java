@@ -28,24 +28,24 @@ public class FlightClient {
 				String scheduledId = scan.next();
 				System.out.println(ser.deleteScheduledFlights(scheduledId));
 				}catch(ValidateException | ScheduleFlightException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 				break;}
 			
 			case "2": {
 		      try {
 				System.out.println("enter the scheduled flights id");
-				 String id = scan.next();
+				 String scheduleId = scan.next();
 		      
 				System.out.println("enter the source airport name");
-				String str1 = scan.next();
+				String source = scan.next();
 
 				System.out.println("enter the destination airport name");
-				String str2 = scan.next();
+				String destination = scan.next();
 
-				System.out.println(ser.changeSourceAndDestination(id, str1, str2));
+				System.out.println(ser.changeSourceAndDestination(scheduleId, source, destination));
 		        }catch(ValidateException|AirportNotFoundException|ScheduleFlightException ex) {
-		        	System.out.println(ex.getMessage());
+		        	System.err.println(ex.getMessage());
 		        }
 				break;
 			}
@@ -55,13 +55,13 @@ public class FlightClient {
 			      String scheduleId=scan.next();
 				System.out.println(ser.viewScheduledFlight(scheduleId));
 				}catch(ValidateException | ScheduleFlightException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 				break;
 			}
 			
 			default: {
-				System.out.println("Invalid option");
+				System.err.println("Invalid option");
 			}
 
 			}
